@@ -19,6 +19,7 @@ package com.exadel.frs.core.trainservice.validation;
 import com.exadel.frs.commonservice.exception.FileExtensionException;
 import com.exadel.frs.commonservice.exception.InvalidBase64Exception;
 import com.exadel.frs.commonservice.system.global.ImageProperties;
+import io.github.pixee.security.Filenames;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.apache.commons.codec.binary.Base64;
@@ -41,7 +42,7 @@ public class ImageExtensionValidator {
         }
 
         val formats = imageProperties.getTypes();
-        String originalFilename = file.getOriginalFilename();
+        String originalFilename = Filenames.toSimpleFileName(file.getOriginalFilename());
         val isWrongFormat = isEmpty(originalFilename) || !formats.contains(getFileExtension(originalFilename.toLowerCase()));
 
         if (isWrongFormat) {
