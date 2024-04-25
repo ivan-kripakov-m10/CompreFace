@@ -58,6 +58,7 @@
 
         <nd4j.classifier>linux-x86_64</nd4j.classifier>
         <docker.image.prefix>frs</docker.image.prefix>
+        <versions.java-security-toolkit>1.1.3</versions.java-security-toolkit>
     </properties>
 
     <dependencyManagement>
@@ -198,6 +199,11 @@
                 <artifactId>greenmail-junit5</artifactId>
                 <version>${greenmail-junit5.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.pixee</groupId>
+                <artifactId>java-security-toolkit</artifactId>
+                <version>${versions.java-security-toolkit}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
